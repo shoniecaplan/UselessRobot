@@ -106,7 +106,7 @@ void loop() {
   mpu.getEvent(&a, &g, &temp);
 
   /*
-    Can un-comment this function when first testing, but turn off after it is working, to improve efficiency
+    Function to print out accelerations to serial monitor. Comment-out this function after it is working, to improve efficiency.
     When the table is standing, you should be getting something close to:
     ax = 0, ay = 0, az = -9.8 (± 0.5 for all of them)
   */
@@ -126,7 +126,7 @@ void loop() {
 
   /*
     If the number of reads that the MPU-6050 has been standing, is equal to cycles_b4_change
-    then the robot falls over. If not, do nothing, literally.
+    then the robot falls over. If not, do nothing.
     You can set the amount of times the MPU has to read a 'standing' value, in a row, by changing 'cycles_b4_change'.
   */
   ( fall_counter == cycles_b4_change ) ? ( fall_over(), fall_counter = 0 ) : ( fall_counter = fall_counter );
